@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <RootNamespace>CustomCode.Core.DesignByContract</RootNamespace>
+    <Configurations>Debug;Release;ContractsThrow;ContractsTrace</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -16,6 +17,18 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard1.6\Core.DesignByContract.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ContractsTrace|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.6\Core.DesignByContract.xml</DocumentationFile>
+    <DefineConstants>TRACE;DEBUG;contracts_trace</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ContractsThrow|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.6\Core.DesignByContract.xml</DocumentationFile>
+    <DefineConstants>TRACE;DEBUG;contracts_throw</DefineConstants>
+    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
