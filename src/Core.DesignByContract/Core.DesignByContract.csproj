@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <RootNamespace>CustomCode.Core.DesignByContract</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Authors>CustomCode</Authors>
+    <PackageProjectUrl>https://github.com/git-custom-code/Core.DesignByContract</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/git-custom-code/Core.DesignByContract</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/git-custom-code/Core.DesignByContract/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>C#, Design by contract</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.6\Core.DesignByContract.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>
