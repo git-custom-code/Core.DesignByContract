@@ -3,7 +3,9 @@ namespace CustomCode.Core.DesignByContract
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
+#if contracts_throw || contracts_trace
     using System.Linq;
+#endif
     using System.Runtime.CompilerServices;
 
     /// <summary>
@@ -15,7 +17,7 @@ namespace CustomCode.Core.DesignByContract
     /// </remarks>
     public partial class Requires
     {
-        #region Logic
+#region Logic
 
         /// <summary>
         /// Precondition that requires an integer <paramref name="value"/> to fullfill the specified
@@ -318,7 +320,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw"), Conditional("contracts_trace")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void BeGreaterThanOrEqualTo(int value, int minimum,
+        public static void ToBeGreaterThanOrEqualTo(int value, int minimum,
             string parameterName = "Value", string errorMessage = null)
         {
 #if contracts_throw
@@ -348,7 +350,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw"), Conditional("contracts_trace")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void BeGreaterThanOrEqualTo<E>(int value, int minimum, Func<E> exceptionFactory)
+        public static void ToBeGreaterThanOrEqualTo<E>(int value, int minimum, Func<E> exceptionFactory)
             where E : Exception
         {
 #if contracts_throw
@@ -380,7 +382,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw"), Conditional("contracts_trace")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void BeGreaterThanOrEqualTo<E>(int value, int minimum, Func<int, int, E> exceptionFactory)
+        public static void ToBeGreaterThanOrEqualTo<E>(int value, int minimum, Func<int, int, E> exceptionFactory)
             where E : Exception
         {
 #if contracts_throw
@@ -750,19 +752,19 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw"), Conditional("contracts_trace")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBePositive<E>(int value, IEnumerable<int> expectedValues, Func<int, E> exceptionFactory)
+        public static void ToBeOneOf<E>(int value, IEnumerable<int> expectedValues, Func<int, IEnumerable<int>, E> exceptionFactory)
             where E : Exception
         {
 #if contracts_throw
             if (expectedValues.Any(v => v == value) == false)
             {
-                var factory = new Lazy<E>(() => exceptionFactory(value)); // invoking the delegate directly will prevent inlining
+                var factory = new Lazy<E>(() => exceptionFactory(value, expectedValues)); // invoking the delegate directly will prevent inlining
                 throw factory.Value;
             }
 #elif contracts_trace
             if (expectedValues.Any(v => v == value) == false)
             {
-                var factory = new Lazy<E>(() => exceptionFactory(value)); // invoking the delegate directly will prevent inlining
+                var factory = new Lazy<E>(() => exceptionFactory(value, expectedValues)); // invoking the delegate directly will prevent inlining
                 Debug.WriteLine(factory.Value.Message);
             }
 #else
@@ -858,6 +860,6 @@ namespace CustomCode.Core.DesignByContract
 #endif
         }
 
-        #endregion
+#endregion
     }
 }
