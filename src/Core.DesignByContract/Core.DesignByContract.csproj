@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <RootNamespace>CustomCode.Core.DesignByContract</RootNamespace>
-    <Configurations>Debug;Release;ContractsThrow;ContractsTrace</Configurations>
+    <Configurations>Debug;Release;ContractsThrow;</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -13,16 +13,12 @@
     <RepositoryUrl>https://github.com/git-custom-code/Core.DesignByContract</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/git-custom-code/Core.DesignByContract/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>C#, Design by contract</PackageTags>
+    <PackageId>CustomCode.Core.DesignByContract</PackageId>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard1.6\Core.DesignByContract.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ContractsTrace|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard1.6\Core.DesignByContract.xml</DocumentationFile>
-    <DefineConstants>TRACE;DEBUG;contracts_trace</DefineConstants>
-    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ContractsThrow|AnyCPU'">

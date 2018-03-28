@@ -38,24 +38,15 @@ namespace CustomCode.Core.DesignByContract
         /// <example>
         /// Requires.NotNull(value);
         /// </example>
-        [Conditional("contracts_throw"), Conditional("contracts_trace")]
+        [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void NotNull<T>(T? value, string parameterName = "Value", string errorMessage = "Value cannot be null")
+        public static void NotToBeNull<T>(T? value, string parameterName = "Value", string errorMessage = "Value cannot be null")
             where T : struct
         {
-#if contracts_throw
             if (value == null)
             {
                 throw new ArgumentNullException(parameterName, errorMessage);
             }
-#elif contracts_trace
-            if (value == null)
-            {
-                Debug.WriteLine($"{parameterName}: {errorMessage}");
-            }
-#else
-            return;
-#endif
         }
 
         /// <summary>
@@ -70,27 +61,17 @@ namespace CustomCode.Core.DesignByContract
         /// <example>
         /// Requires.NotNull(value, () => new ArgumentNullException("Value", "Value cannot be null."));
         /// </example>
-        [Conditional("contracts_throw"), Conditional("contracts_trace")]
+        [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void NotNull<T, E>(T? value, Func<E> exceptionFactory)
+        public static void NotToBeNull<T, E>(T? value, Func<E> exceptionFactory)
             where T : struct
             where E : Exception
         {
-#if contracts_throw
             if (value == null)
             {
                 var factory = new Lazy<E>(exceptionFactory); // invoking the delegate directly will prevent inlining
                 throw factory.Value;
             }
-#elif contracts_trace
-            if (value == null)
-            {
-                var factory = new Lazy<E>(exceptionFactory); // invoking the delegate directly will prevent inlining
-                Debug.WriteLine(factory.Value.Message);
-            }
-#else
-            return;
-#endif
         }
 
         /// <summary>
@@ -105,27 +86,17 @@ namespace CustomCode.Core.DesignByContract
         /// <example>
         /// Requires.NotNull(value, (v) => new ArgumentNullException("Value", "Value cannot be null."));
         /// </example>
-        [Conditional("contracts_compile")]
+        [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void NotNull<T, E>(Nullable<T> value, Func<Nullable<T>, E> exceptionFactory)
+        public static void NotToBeNull<T, E>(Nullable<T> value, Func<Nullable<T>, E> exceptionFactory)
             where T : struct
             where E : Exception
         {
-#if contracts_throw
             if (value == null)
             {
                 var factory = new Lazy<E>(() => exceptionFactory(value)); // invoking the delegate directly will prevent inlining
                 throw factory.Value;
             }
-#elif contracts_trace
-            if (value == null)
-            {
-                var factory = new Lazy<E>(() => exceptionFactory(value)); // invoking the delegate directly will prevent inlining
-                Debug.WriteLine(factory.Value.Message);
-            }
-#else
-            return;
-#endif
         }
 
         #endregion
