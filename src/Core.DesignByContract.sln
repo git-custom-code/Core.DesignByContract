@@ -12,33 +12,44 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark.Core.DesignByContract", "Benchmark.Core.DesignByContract\Benchmark.Core.DesignByContract.csproj", "{A3A85E12-989B-468A-898E-91128F1F33DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2CA5A63C-FAE0-4444-804C-E97ADC125A1A}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.config = .nuget\NuGet.config
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Core.DesignByContract", "Test.Core.DesignByContract\Test.Core.DesignByContract.csproj", "{30EAEED4-FDF2-41B2-8262-A90BCEC1B7C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ContractsThrow|Any CPU = ContractsThrow|Any CPU
-		ContractsTrace|Any CPU = ContractsTrace|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.ContractsThrow|Any CPU.ActiveCfg = ContractsThrow|Any CPU
 		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.ContractsThrow|Any CPU.Build.0 = ContractsThrow|Any CPU
-		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.ContractsTrace|Any CPU.ActiveCfg = ContractsTrace|Any CPU
-		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.ContractsTrace|Any CPU.Build.0 = ContractsTrace|Any CPU
 		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD832E0F-AAC1-41E7-9F41-E63C16DB4E37}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3A85E12-989B-468A-898E-91128F1F33DB}.ContractsThrow|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A85E12-989B-468A-898E-91128F1F33DB}.ContractsThrow|Any CPU.Build.0 = Release|Any CPU
-		{A3A85E12-989B-468A-898E-91128F1F33DB}.ContractsTrace|Any CPU.ActiveCfg = Release|Any CPU
-		{A3A85E12-989B-468A-898E-91128F1F33DB}.ContractsTrace|Any CPU.Build.0 = Release|Any CPU
 		{A3A85E12-989B-468A-898E-91128F1F33DB}.Debug|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A85E12-989B-468A-898E-91128F1F33DB}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{A3A85E12-989B-468A-898E-91128F1F33DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A85E12-989B-468A-898E-91128F1F33DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30EAEED4-FDF2-41B2-8262-A90BCEC1B7C7}.ContractsThrow|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EAEED4-FDF2-41B2-8262-A90BCEC1B7C7}.ContractsThrow|Any CPU.Build.0 = Debug|Any CPU
+		{30EAEED4-FDF2-41B2-8262-A90BCEC1B7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30EAEED4-FDF2-41B2-8262-A90BCEC1B7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30EAEED4-FDF2-41B2-8262-A90BCEC1B7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30EAEED4-FDF2-41B2-8262-A90BCEC1B7C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CA5A63C-FAE0-4444-804C-E97ADC125A1A} = {E01927F6-6177-400F-8C52-D216D1F9CB1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8ACE0CFB-4739-45C1-837C-43BD68225994}
