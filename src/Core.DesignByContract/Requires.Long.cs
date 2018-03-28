@@ -7,7 +7,7 @@ namespace CustomCode.Core.DesignByContract
     using System.Runtime.CompilerServices;
 
     /// <summary>
-    /// Preconditions for <see cref="short"/> types.
+    /// Preconditions for <see cref="long"/> types.
     /// </summary>
     /// <remarks>
     /// https://stackoverflow.com/questions/15319025/methodimploptions-aggressiveinlining-vs-targetedpatchingoptout
@@ -18,10 +18,10 @@ namespace CustomCode.Core.DesignByContract
         #region Logic
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to fullfill the specified
+        /// Precondition that requires a long <paramref name="value"/> to fullfill the specified
         /// boolean <paramref name="condition"/>.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="condition"> A boolean condition that must be fullfilled by the specified value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -30,7 +30,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBe(short value, Func<short, bool> condition,
+        public static void ToBe(long value, Func<long, bool> condition,
             string parameterName = "Value", string errorMessage = "Value is invalid")
         {
             if (new Lazy<bool>(() => condition(value)).Value == false) // invoking the delegate directly will prevent inlining
@@ -40,10 +40,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to fullfill the specified
+        /// Precondition that requires a long <paramref name="value"/> to fullfill the specified
         /// boolean <paramref name="condition"/>.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="condition"> A boolean condition that must be fullfilled by the specified value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -51,7 +51,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBe<E>(short value, Func<short, bool> condition, Func<E> exceptionFactory)
+        public static void ToBe<E>(long value, Func<long, bool> condition, Func<E> exceptionFactory)
             where E : Exception
         {
             if (new Lazy<bool>(() => condition(value)).Value == false) // invoking the delegate directly will prevent inlining
@@ -62,10 +62,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to fullfill the specified
+        /// Precondition that requires a long <paramref name="value"/> to fullfill the specified
         /// boolean <paramref name="condition"/>.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="condition"> A boolean condition that must be fullfilled by the specified value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -73,7 +73,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBe<E>(short value, Func<short, bool> condition, Func<short, E> exceptionFactory)
+        public static void ToBe<E>(long value, Func<long, bool> condition, Func<long, E> exceptionFactory)
             where E : Exception
         {
             if (new Lazy<bool>(() => condition(value)).Value == false) // invoking the delegate directly will prevent inlining
@@ -84,10 +84,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be between the specified
+        /// Precondition that requires a long <paramref name="value"/> to be between the specified
         /// <paramref name="minimum"/> and <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
@@ -97,7 +97,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeBetween(short value, short minimum, short maximum,
+        public static void ToBeBetween(long value, long minimum, long maximum,
             string parameterName = "Value", string errorMessage = "Value must be between the specified minimum and maximum")
         {
             if (value < minimum || value > maximum)
@@ -107,10 +107,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be between the specified
+        /// Precondition that requires a long <paramref name="value"/> to be between the specified
         /// <paramref name="minimum"/> and <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
@@ -119,7 +119,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeBetween<E>(short value, short minimum, short maximum, Func<E> exceptionFactory)
+        public static void ToBeBetween<E>(long value, long minimum, long maximum, Func<E> exceptionFactory)
             where E : Exception
         {
             if (value < minimum || value > maximum)
@@ -130,10 +130,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be between the specified
+        /// Precondition that requires a long <paramref name="value"/> to be between the specified
         /// <paramref name="minimum"/> and <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
@@ -142,7 +142,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeBetween<E>(short value, short minimum, short maximum, Func<short, short, short, E> exceptionFactory)
+        public static void ToBeBetween<E>(long value, long minimum, long maximum, Func<long, long, long, E> exceptionFactory)
             where E : Exception
         {
             if (value < minimum || value > maximum)
@@ -153,10 +153,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be greater than the specified
+        /// Precondition that requires a long <paramref name="value"/> to be greater than the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -165,7 +165,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeGreaterThan(short value, short minimum,
+        public static void ToBeGreaterThan(long value, long minimum,
             string parameterName = "Value", string errorMessage = "Value must be greater than the specified minimum")
         {
             if (value <= minimum)
@@ -175,10 +175,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be greater than the specified
+        /// Precondition that requires a long <paramref name="value"/> to be greater than the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -186,7 +186,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeGreaterThan<E>(short value, short minimum, Func<E> exceptionFactory)
+        public static void ToBeGreaterThan<E>(long value, long minimum, Func<E> exceptionFactory)
             where E : Exception
         {
             if (value <= minimum)
@@ -197,10 +197,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be greater than the specified
+        /// Precondition that requires a long <paramref name="value"/> to be greater than the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -208,7 +208,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeGreaterThan<E>(short value, short minimum, Func<short, short, E> exceptionFactory)
+        public static void ToBeGreaterThan<E>(long value, long minimum, Func<long, long, E> exceptionFactory)
             where E : Exception
         {
             if (value <= minimum)
@@ -219,10 +219,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be greater than or equal to the specified
+        /// Precondition that requires a long <paramref name="value"/> to be greater than or equal to the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -231,7 +231,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeGreaterThanOrEqualTo(short value, short minimum,
+        public static void ToBeGreaterThanOrEqualTo(long value, long minimum,
             string parameterName = "Value", string errorMessage = "Value must be greater than or equal to the specified minimum")
         {
             if (value < minimum)
@@ -241,10 +241,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be greater than or equal to the specified
+        /// Precondition that requires a long <paramref name="value"/> to be greater than or equal to the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -252,7 +252,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeGreaterThanOrEqualTo<E>(short value, short minimum, Func<E> exceptionFactory)
+        public static void ToBeGreaterThanOrEqualTo<E>(long value, long minimum, Func<E> exceptionFactory)
             where E : Exception
         {
             if (value < minimum)
@@ -263,10 +263,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be greater than or equal to the specified
+        /// Precondition that requires a long <paramref name="value"/> to be greater than or equal to the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -274,7 +274,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeGreaterThanOrEqualTo<E>(short value, short minimum, Func<short, short, E> exceptionFactory)
+        public static void ToBeGreaterThanOrEqualTo<E>(long value, long minimum, Func<long, long, E> exceptionFactory)
             where E : Exception
         {
             if (value < minimum)
@@ -285,10 +285,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be less than the specified
+        /// Precondition that requires a long <paramref name="value"/> to be less than the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -297,7 +297,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeLessThan(short value, short maximum,
+        public static void ToBeLessThan(long value, long maximum,
             string parameterName = "Value", string errorMessage = "Value must be less than the specified maximum")
         {
             if (value >= maximum)
@@ -307,10 +307,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be less than the specified
+        /// Precondition that requires a long <paramref name="value"/> to be less than the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -318,7 +318,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeLessThan<E>(short value, short maximum, Func<E> exceptionFactory)
+        public static void ToBeLessThan<E>(long value, long maximum, Func<E> exceptionFactory)
             where E : Exception
         {
             if (value >= maximum)
@@ -329,10 +329,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be less than the specified
+        /// Precondition that requires a long <paramref name="value"/> to be less than the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -340,7 +340,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeLessThan<E>(short value, short maximum, Func<short, short, E> exceptionFactory)
+        public static void ToBeLessThan<E>(long value, long maximum, Func<long, long, E> exceptionFactory)
             where E : Exception
         {
             if (value >= maximum)
@@ -351,10 +351,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be less than or equal to the specified
+        /// Precondition that requires a long <paramref name="value"/> to be less than or equal to the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -363,7 +363,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeLessThanOrEqualTo(short value, short maximum,
+        public static void ToBeLessThanOrEqualTo(long value, long maximum,
             string parameterName = "Value", string errorMessage = "Value must be less than or equal to the specified maximum")
         {
             if (value > maximum)
@@ -373,10 +373,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be less than or equal to the specified
+        /// Precondition that requires a long <paramref name="value"/> to be less than or equal to the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -384,7 +384,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeLessThanOrEqualTo<E>(short value, short maximum, Func<E> exceptionFactory)
+        public static void ToBeLessThanOrEqualTo<E>(long value, long maximum, Func<E> exceptionFactory)
             where E : Exception
         {
             if (value > maximum)
@@ -395,10 +395,10 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be less than or equal to the specified
+        /// Precondition that requires a long <paramref name="value"/> to be less than or equal to the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -406,7 +406,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeLessThanOrEqualTo<E>(short value, short maximum, Func<short, short, E> exceptionFactory)
+        public static void ToBeLessThanOrEqualTo<E>(long value, long maximum, Func<long, long, E> exceptionFactory)
             where E : Exception
         {
             if (value > maximum)
@@ -417,9 +417,9 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be negative.
+        /// Precondition that requires a long <paramref name="value"/> to be negative.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
         /// <example>
@@ -427,7 +427,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeNegative(short value, string parameterName = "Value", string errorMessage = "Value must be negative")
+        public static void ToBeNegative(long value, string parameterName = "Value", string errorMessage = "Value must be negative")
         {
             if (value >= 0)
             {
@@ -436,16 +436,16 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be negative.
+        /// Precondition that requires a long <paramref name="value"/> to be negative.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBeNegative(value, () => new ArgumentException("Invalid value", "value"));
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeNegative<E>(short value, Func<E> exceptionFactory)
+        public static void ToBeNegative<E>(long value, Func<E> exceptionFactory)
             where E : Exception
         {
             if (value >= 0)
@@ -456,16 +456,16 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be negative.
+        /// Precondition that requires a long <paramref name="value"/> to be negative.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBeNegative(value, (v) => new ArgumentException("Invalid value", "value"));
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeNegative<E>(short value, Func<short, E> exceptionFactory)
+        public static void ToBeNegative<E>(long value, Func<long, E> exceptionFactory)
             where E : Exception
         {
             if (value >= 0)
@@ -476,9 +476,9 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be one of the expected values.
+        /// Precondition that requires a long <paramref name="value"/> to be one of the expected values.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="expectedValues"> The expected values. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -487,7 +487,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeOneOf(short value, IEnumerable<short> expectedValues,
+        public static void ToBeOneOf(long value, IEnumerable<long> expectedValues,
             string parameterName = "Value", string errorMessage = "Value is invalid")
         {
             if (expectedValues.Any(v => v == value) == false)
@@ -497,9 +497,9 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be one of the expected values.
+        /// Precondition that requires a long <paramref name="value"/> to be one of the expected values.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="expectedValues"> The expected values. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -507,7 +507,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeOneOf<E>(short value, IEnumerable<short> expectedValues, Func<E> exceptionFactory)
+        public static void ToBeOneOf<E>(long value, IEnumerable<long> expectedValues, Func<E> exceptionFactory)
             where E : Exception
         {
             if (expectedValues.Any(v => v == value) == false)
@@ -518,9 +518,9 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be one of the expected values.
+        /// Precondition that requires a long <paramref name="value"/> to be one of the expected values.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="expectedValues"> The expected values. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -528,7 +528,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeOneOf<E>(short value, IEnumerable<short> expectedValues, Func<short, IEnumerable<short>, E> exceptionFactory)
+        public static void ToBeOneOf<E>(long value, IEnumerable<long> expectedValues, Func<long, IEnumerable<long>, E> exceptionFactory)
             where E : Exception
         {
             if (expectedValues.Any(v => v == value) == false)
@@ -539,9 +539,9 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be positive.
+        /// Precondition that requires a long <paramref name="value"/> to be positive.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
         /// <example>
@@ -549,7 +549,7 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBePositive(short value, string parameterName = "Value", string errorMessage = "Value must be positive")
+        public static void ToBePositive(long value, string parameterName = "Value", string errorMessage = "Value must be positive")
         {
             if (value < 0)
             {
@@ -558,16 +558,16 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be positive.
+        /// Precondition that requires a long <paramref name="value"/> to be positive.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBePositive(value, () => new ArgumentException("Invalid value", "value"));
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBePositive<E>(short value, Func<E> exceptionFactory)
+        public static void ToBePositive<E>(long value, Func<E> exceptionFactory)
             where E : Exception
         {
             if (value < 0)
@@ -578,16 +578,16 @@ namespace CustomCode.Core.DesignByContract
         }
 
         /// <summary>
-        /// Precondition that requires a short <paramref name="value"/> to be positive.
+        /// Precondition that requires a long <paramref name="value"/> to be positive.
         /// </summary>
-        /// <param name="value"> The <see cref="short"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="long"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBePositive(value, (v) => new ArgumentException("Invalid value", "value"));
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBePositive<E>(short value, Func<short, E> exceptionFactory)
+        public static void ToBePositive<E>(long value, Func<long, E> exceptionFactory)
             where E : Exception
         {
             if (value < 0)
