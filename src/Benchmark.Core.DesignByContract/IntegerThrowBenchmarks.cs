@@ -1,5 +1,4 @@
 #define contracts_throw
-#undef contracts_trace
 
 namespace CustomCode.Core.DesignByContract.Benchmarks
 {
@@ -16,7 +15,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
     public partial class IntegerThrowBenchmarks
     {
         [Benchmark(Baseline = true, Description = "Requires.ToBe throws (int)")]
-        public void RequireseToBe()
+        public void RequiresToBe()
         {
             var @int = 0;
 
@@ -24,7 +23,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBe(@int, (i) => i > 42);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -49,7 +48,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBeBetween throws (int)")]
-        public void RequireseToBeBetween()
+        public void RequiresToBeBetween()
         {
             var @int = 0;
 
@@ -57,7 +56,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBeBetween(@int, 1, 42);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -82,7 +81,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBeGreaterThan throws (int)")]
-        public void RequireseToBeGreaterThan()
+        public void RequiresToBeGreaterThan()
         {
             var @int = 0;
 
@@ -90,7 +89,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBeGreaterThan(@int, 42);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -115,7 +114,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBeGreaterThanOrEqualTo throws (int)")]
-        public void RequireseToBeGreaterThanOrEqualTo()
+        public void RequiresToBeGreaterThanOrEqualTo()
         {
             var @int = 0;
 
@@ -123,7 +122,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBeGreaterThanOrEqualTo(@int, 42);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -148,7 +147,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBeLessThan throws (int)")]
-        public void RequireseToBeLessThan()
+        public void RequiresToBeLessThan()
         {
             var @int = 42;
 
@@ -156,7 +155,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBeLessThan(@int, 1);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -181,7 +180,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBeLessThanOrEqualTo throws (int)")]
-        public void RequireseToBeLessThanOrEqualTo()
+        public void RequiresToBeLessThanOrEqualTo()
         {
             var @int = 42;
 
@@ -189,7 +188,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBeLessThanOrEqualTo(@int, 1);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -214,7 +213,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBeNegative throws (int)")]
-        public void RequireseToBeNegative()
+        public void RequiresToBeNegative()
         {
             var @int = 42;
 
@@ -222,7 +221,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBeNegative(@int);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -247,7 +246,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBeOneOf throws (int)")]
-        public void RequireseToBeOneOf()
+        public void RequiresToBeOneOf()
         {
             var @int = 42;
 
@@ -255,7 +254,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBeOneOf(@int, new[] { 1, 2, 3 });
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
@@ -280,7 +279,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
         }
 
         [Benchmark(Baseline = false, Description = "Requires.ToBePositive throws (int)")]
-        public void RequireseToBePositive()
+        public void RequiresToBePositive()
         {
             var @int = -42;
 
@@ -288,7 +287,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
             {
                 Requires.ToBePositive(@int);
             }
-            catch (ArgumentNullException)
+            catch (ArgumentException)
             {
                 // do nothing
             }
