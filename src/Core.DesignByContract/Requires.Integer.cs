@@ -31,11 +31,11 @@ namespace CustomCode.Core.DesignByContract
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ToBe(int value, Func<int, bool> condition,
-            string parameterName = "Value", string errorMessage = null)
+            string parameterName = "Value", string errorMessage = "Value is invalid")
         {
             if (new Lazy<bool>(() => condition(value)).Value == false) // invoking the delegate directly will prevent inlining
             {
-                throw new ArgumentException(errorMessage ?? $"Invalid value: {value}", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
@@ -54,7 +54,7 @@ namespace CustomCode.Core.DesignByContract
         public static void ToBe<E>(int value, Func<int, bool> condition, Func<E> exceptionFactory)
             where E : Exception
         {
-            if (new Lazy<bool>(condition(value)).Value == false) // invoking the delegate directly will prevent inlining
+            if (new Lazy<bool>(() => condition(value)).Value == false) // invoking the delegate directly will prevent inlining
             {
                 var factory = new Lazy<E>(exceptionFactory); // invoking the delegate directly will prevent inlining
                 throw factory.Value;
@@ -76,7 +76,7 @@ namespace CustomCode.Core.DesignByContract
         public static void ToBe<E>(int value, Func<int, bool> condition, Func<int, E> exceptionFactory)
             where E : Exception
         {
-            if (new Lazy<bool>(condition(value)).Value == false) // invoking the delegate directly will prevent inlining
+            if (new Lazy<bool>(() => condition(value)).Value == false) // invoking the delegate directly will prevent inlining
             {
                 var factory = new Lazy<E>(() => exceptionFactory(value)); // invoking the delegate directly will prevent inlining
                 throw factory.Value;
@@ -98,11 +98,11 @@ namespace CustomCode.Core.DesignByContract
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ToBeBetween(int value, int minimum, int maximum,
-            string parameterName = "Value", string errorMessage = null)
+            string parameterName = "Value", string errorMessage = "Value must be between the specified minimum and maximum")
         {
             if (value < minimum || value > maximum)
             {
-                throw new ArgumentException(errorMessage ?? $"{value} must be between {minimum} and {maximum}", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
@@ -166,11 +166,11 @@ namespace CustomCode.Core.DesignByContract
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ToBeGreaterThan(int value, int minimum,
-            string parameterName = "Value", string errorMessage = null)
+            string parameterName = "Value", string errorMessage = "Value must be greater than the specified minimum")
         {
             if (value <= minimum)
             {
-                throw new ArgumentException(errorMessage ?? $"{value} must be greater than {minimum}", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
@@ -232,11 +232,11 @@ namespace CustomCode.Core.DesignByContract
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ToBeGreaterThanOrEqualTo(int value, int minimum,
-            string parameterName = "Value", string errorMessage = null)
+            string parameterName = "Value", string errorMessage = "Value must be greater than or equal to the specified minimum")
         {
             if (value < minimum)
             {
-                throw new ArgumentException(errorMessage ?? $"{value} must be greater than or equal to {minimum}", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
@@ -298,11 +298,11 @@ namespace CustomCode.Core.DesignByContract
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ToBeLessThan(int value, int maximum,
-            string parameterName = "Value", string errorMessage = null)
+            string parameterName = "Value", string errorMessage = "Value must be less than the specified maximum")
         {
             if (value >= maximum)
             {
-                throw new ArgumentException(errorMessage ?? $"{value} must be less than {maximum}", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
@@ -364,11 +364,11 @@ namespace CustomCode.Core.DesignByContract
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ToBeLessThanOrEqualTo(int value, int maximum,
-            string parameterName = "Value", string errorMessage = null)
+            string parameterName = "Value", string errorMessage = "Value must be less than or equal to the specified maximum")
         {
             if (value > maximum)
             {
-                throw new ArgumentException(errorMessage ?? $"{value} must be less than or equal to {maximum}", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
@@ -427,11 +427,11 @@ namespace CustomCode.Core.DesignByContract
         /// </example>
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ToBeNegative(int value, string parameterName = "Value", string errorMessage = null)
+        public static void ToBeNegative(int value, string parameterName = "Value", string errorMessage = "Value must be negative")
         {
             if (value >= 0)
             {
-                throw new ArgumentException(errorMessage ?? $"{value} must be negative", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
@@ -488,11 +488,11 @@ namespace CustomCode.Core.DesignByContract
         [Conditional("contracts_throw")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ToBeOneOf(int value, IEnumerable<int> expectedValues,
-            string parameterName = "Value", string errorMessage = null)
+            string parameterName = "Value", string errorMessage = "Value is invalid")
         {
             if (expectedValues.Any(v => v == value) == false)
             {
-                throw new ArgumentException(errorMessage ?? $"{value} must be one of the following values: {string.Join("\", \"", expectedValues)}", parameterName);
+                throw new ArgumentException(errorMessage, parameterName);
             }
         }
 
