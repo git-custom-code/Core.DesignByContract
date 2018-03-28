@@ -12,7 +12,7 @@ namespace CustomCode.Core.DesignByContract.Benchmarks
 
     [InliningDiagnoser(logFailuresOnly: false)]
     [SimpleJob(runStrategy: RunStrategy.ColdStart, launchCount: 0, warmupCount: 0, targetCount: 1)]
-    public partial class IntegerThrowBenchmarks
+    public partial class IntegerBenchmarks
     {
         [Benchmark(Baseline = true, Description = "Requires.ToBe throws (int)")]
         public void RequiresToBe()

@@ -146,7 +146,8 @@
     <Compile Include="..\Shared\SharedAssemblyVersion.cs">
       <Link>Properties\SharedAssemblyVersion.cs</Link>
     </Compile>
-    <Compile Include="IntegerThrowBenchmarks.cs" />
+    <Compile Include="NullableBenchmarks.cs" />
+    <Compile Include="IntegerBenchmarks.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
