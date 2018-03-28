@@ -40,7 +40,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         public void IntegerToBeFailedWithParameterizedException()
         {
             Given(() => (int)42)
-            .When(value => Requires.ToBe(value, v => v == 42, v => new ArgumentOutOfRangeException($"Invalid value: {v}")))
+            .When(value => Requires.ToBe(value, v => v != 42, v => new ArgumentOutOfRangeException($"Invalid value: {v}")))
             .ThenThrow<ArgumentOutOfRangeException>();
         }
 
