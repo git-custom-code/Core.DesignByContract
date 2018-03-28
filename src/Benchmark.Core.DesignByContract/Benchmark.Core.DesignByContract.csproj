@@ -147,6 +147,7 @@
       <Link>Properties\SharedAssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="LongBenchmarks.cs" />
+    <Compile Include="SbyteBenchmarks.cs" />
     <Compile Include="ShortBenchmarks.cs" />
     <Compile Include="NullableBenchmarks.cs" />
     <Compile Include="IntegerBenchmarks.cs" />
