@@ -13,7 +13,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBe
 
         [Fact(DisplayName = "Requires.ToBe(sbyte, condition)")]
-        public void ShortToBeSuccessful()
+        public void SbyteToBeSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBe(value, v => v == 42))
@@ -21,7 +21,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBe(sbyte, condition)")]
-        public void ShortToBeFailed()
+        public void SbyteToBeFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBe(value, v => v != 42))
@@ -29,7 +29,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBe(sbyte, condition)")]
-        public void ShortToBeFailedWithCustomException()
+        public void SbyteToBeFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBe(value, v => v != 42, () => new ArgumentOutOfRangeException()))
@@ -37,7 +37,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBe(sbyte, condition)")]
-        public void ShortToBeFailedWithParameterizedException()
+        public void SbyteToBeFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBe(value, v => v != 42, v => new ArgumentOutOfRangeException($"Invalid value: {v}")))
@@ -49,7 +49,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBeBetween
 
         [Fact(DisplayName = "Requires.ToBeBetween(sbyte, min, max)")]
-        public void ShortToBeBetweenSuccessful()
+        public void SbyteToBeBetweenSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeBetween(value, (sbyte)1, (sbyte)100))
@@ -57,7 +57,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeBetween(sbyte, max, min)")]
-        public void ShortToBeBetweenFailed()
+        public void SbyteToBeBetweenFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeBetween(value, (sbyte)100, (sbyte)1))
@@ -65,7 +65,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeBetween(sbyte, max, min)")]
-        public void ShortToBeBetweenFailedWithCustomException()
+        public void SbyteToBeBetweenFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeBetween(value, (sbyte)100, (sbyte)1, () => new ArgumentOutOfRangeException()))
@@ -73,7 +73,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeBetween(sbyte, max, min)")]
-        public void ShortToBeBetweenFailedWithParameterizedException()
+        public void SbyteToBeBetweenFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeBetween(value, (sbyte)100, (sbyte)1, (v, min, max) => new ArgumentOutOfRangeException($"Invalid value: {v} not between {min} and {max}")))
@@ -85,7 +85,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBeGreaterThan
 
         [Fact(DisplayName = "Requires.ToBeGreaterThan(sbyte, min)")]
-        public void ShortToBeGreaterThanSuccessful()
+        public void SbyteToBeGreaterThanSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThan(value, (sbyte)1))
@@ -93,7 +93,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeGreaterThan(sbyte, max)")]
-        public void ShortToBeGreaterThanFailed()
+        public void SbyteToBeGreaterThanFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThan(value, (sbyte)100))
@@ -101,7 +101,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeGreaterThan(sbyte, max)")]
-        public void ShortToBeGreaterThanFailedWithCustomException()
+        public void SbyteToBeGreaterThanFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThan(value, (sbyte)100, () => new ArgumentOutOfRangeException()))
@@ -109,7 +109,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeGreaterThan(sbyte, max)")]
-        public void ShortToBeGreaterThanFailedWithParameterizedException()
+        public void SbyteToBeGreaterThanFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThan(value, (sbyte)100, (v, min) => new ArgumentOutOfRangeException($"Invalid value: {v} <= {min}")))
@@ -121,7 +121,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBeGreaterThanOrEqualTo
 
         [Fact(DisplayName = "Requires.ToBeGreaterThanOrEqualTo(sbyte, min)")]
-        public void ShortToBeGreaterThanOrEqualToSuccessful()
+        public void SbyteToBeGreaterThanOrEqualToSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThanOrEqualTo(value, (sbyte)1))
@@ -129,7 +129,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeGreaterThanOrEqualTo(sbyte, max)")]
-        public void ShortToBeGreaterThanOrEqualToFailed()
+        public void SbyteToBeGreaterThanOrEqualToFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThanOrEqualTo(value, (sbyte)100))
@@ -137,7 +137,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeGreaterThanOrEqualTo(sbyte, max)")]
-        public void ShortToBeGreaterThanOrEqualToFailedWithCustomException()
+        public void SbyteToBeGreaterThanOrEqualToFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThanOrEqualTo(value, (sbyte)100, () => new ArgumentOutOfRangeException()))
@@ -145,7 +145,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeGreaterThanOrEqualTo(sbyte, max)")]
-        public void ShortToBeGreaterThanOrEqualToFailedWithParameterizedException()
+        public void SbyteToBeGreaterThanOrEqualToFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeGreaterThanOrEqualTo(value, (sbyte)100, (v, min) => new ArgumentOutOfRangeException($"Invalid value: {v} < {min}")))
@@ -157,7 +157,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBeLessThan
 
         [Fact(DisplayName = "Requires.ToBeLessThan(sbyte, max)")]
-        public void ShortToBeLessThanSuccessful()
+        public void SbyteToBeLessThanSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThan(value, (sbyte)100))
@@ -165,7 +165,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeLessThan(sbyte, min)")]
-        public void ShortToBeLessThanFailed()
+        public void SbyteToBeLessThanFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThan(value, (sbyte)1))
@@ -173,7 +173,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeLessThan(sbyte, min)")]
-        public void ShortToBeLessThanFailedWithCustomException()
+        public void SbyteToBeLessThanFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThan(value, (sbyte)1, () => new ArgumentOutOfRangeException()))
@@ -181,7 +181,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeLessThan(sbyte, min)")]
-        public void ShortToBeLessThanFailedWithParameterizedException()
+        public void SbyteToBeLessThanFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThan(value, (sbyte)1, (v, max) => new ArgumentOutOfRangeException($"Invalid value: {v} >= {max}")))
@@ -193,7 +193,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBeLessThanOrEqualTo
 
         [Fact(DisplayName = "Requires.ToBeLessThanOrEqualTo(sbyte, max)")]
-        public void ShortToBeLessThanOrEqualToSuccessful()
+        public void SbyteToBeLessThanOrEqualToSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThanOrEqualTo(value, (sbyte)100))
@@ -201,7 +201,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeLessThanOrEqualTo(sbyte, min)")]
-        public void ShortToBeLessThanOrEqualToFailed()
+        public void SbyteToBeLessThanOrEqualToFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThanOrEqualTo(value, (sbyte)1))
@@ -209,7 +209,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeLessThanOrEqualTo(sbyte, min)")]
-        public void ShortToBeLessThanOrEqualToFailedWithCustomException()
+        public void SbyteToBeLessThanOrEqualToFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThanOrEqualTo(value, (sbyte)1, () => new ArgumentOutOfRangeException()))
@@ -217,7 +217,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeLessThanOrEqualTo(sbyte, min)")]
-        public void ShortToBeLessThanOrEqualToFailedWithParameterizedException()
+        public void SbyteToBeLessThanOrEqualToFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeLessThanOrEqualTo(value, (sbyte)1, (v, max) => new ArgumentOutOfRangeException($"Invalid value: {v} > {max}")))
@@ -229,7 +229,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBeNegative
 
         [Fact(DisplayName = "Requires.ToBeNegative(sbyte)")]
-        public void ShortToBeNegativeSuccessful()
+        public void SbyteToBeNegativeSuccessful()
         {
             Given(() => (sbyte)-42)
             .When(value => Requires.ToBeNegative(value))
@@ -237,7 +237,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeNegative(sbyte)")]
-        public void ShortToBeNegativeFailed()
+        public void SbyteToBeNegativeFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeNegative(value))
@@ -245,7 +245,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeNegative(sbyte)")]
-        public void ShortToBeNegativeFailedWithCustomException()
+        public void SbyteToBeNegativeFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeNegative(value, () => new ArgumentOutOfRangeException()))
@@ -253,7 +253,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeNegative(sbyte)")]
-        public void ShortToBeNegativeFailedWithParameterizedException()
+        public void SbyteToBeNegativeFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeNegative(value, (v) => new ArgumentOutOfRangeException($"Invalid value: {v}")))
@@ -265,7 +265,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBeOneOf
 
         [Fact(DisplayName = "Requires.ToBeOneOf(sbyte, others[])")]
-        public void ShortToBeOneOfSuccessful()
+        public void SbyteToBeOneOfSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeOneOf(value, new[] { 1, 2, 42 }))
@@ -273,7 +273,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeOneOf(sbyte, others[])")]
-        public void ShortToBeOneOfFailed()
+        public void SbyteToBeOneOfFailed()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeOneOf(value, new[] { 1, 2 }))
@@ -281,7 +281,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeOneOf(sbyte, others[])")]
-        public void ShortToBeOneOfFailedWithCustomException()
+        public void SbyteToBeOneOfFailedWithCustomException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeOneOf(value, new[] { 1, 2 }, () => new ArgumentOutOfRangeException()))
@@ -289,7 +289,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBeOneOf(sbyte, others[])")]
-        public void ShortToBeOneOfFailedWithParameterizedException()
+        public void SbyteToBeOneOfFailedWithParameterizedException()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBeOneOf(value, new[] { 1, 2 }, (v, others) => new ArgumentOutOfRangeException($"Invalid value: {v}")))
@@ -301,7 +301,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         #region ToBePositive
 
         [Fact(DisplayName = "Requires.ToBePositive(sbyte)")]
-        public void ShortToBePositiveSuccessful()
+        public void SbyteToBePositiveSuccessful()
         {
             Given(() => (sbyte)42)
             .When(value => Requires.ToBePositive(value))
@@ -309,7 +309,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBePositive(sbyte)")]
-        public void ShortToBePositiveFailed()
+        public void SbyteToBePositiveFailed()
         {
             Given(() => (sbyte)-42)
             .When(value => Requires.ToBePositive(value))
@@ -317,7 +317,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBePositive(sbyte)")]
-        public void ShortToBePositiveFailedWithCustomException()
+        public void SbyteToBePositiveFailedWithCustomException()
         {
             Given(() => (sbyte)-42)
             .When(value => Requires.ToBePositive(value, () => new ArgumentOutOfRangeException()))
@@ -325,7 +325,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         }
 
         [Fact(DisplayName = "Requires.ToBePositive(sbyte)")]
-        public void ShortToBePositiveFailedWithParameterizedException()
+        public void SbyteToBePositiveFailedWithParameterizedException()
         {
             Given(() => (sbyte)-42)
             .When(value => Requires.ToBePositive(value, (v) => new ArgumentOutOfRangeException($"Invalid value: {v}")))
