@@ -147,6 +147,7 @@
       <Link>Properties\SharedAssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="ByteBenchmarks.cs" />
+    <Compile Include="DoubleBenchmarks.cs" />
     <Compile Include="ReferenceTypeBenchmarks.cs" />
     <Compile Include="FloatBenchmarks.cs" />
     <Compile Include="UshortBenchmarks.cs" />
