@@ -7,8 +7,8 @@ namespace CustomCode.Core.DesignByContract.Tests
     using Xunit;
 
     [UnitTest]
-    [Category("Uuint", "Requires")]
-    public sealed class RequiresUuintTests : TestCase
+    [Category("Uint", "Requires")]
+    public sealed class RequiresUintTests : TestCase
     {
         #region ToBe
 
