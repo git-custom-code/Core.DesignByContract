@@ -232,7 +232,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         public void UlongToBeOneOfSuccessful()
         {
             Given(() => 42ul)
-            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2u, 42ul }))
+            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2ul, 42ul }))
             .Then(value => value.Should().Be(42ul));
         }
 
@@ -240,7 +240,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         public void UlongToBeOneOfFailed()
         {
             Given(() => 42ul)
-            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2u }))
+            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2ul }))
             .ThenThrow<ArgumentException>();
         }
 
@@ -248,7 +248,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         public void UlongToBeOneOfFailedWithCustomException()
         {
             Given(() => 42ul)
-            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2u }, () => new ArgumentOutOfRangeException()))
+            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2ul }, () => new ArgumentOutOfRangeException()))
             .ThenThrow<ArgumentOutOfRangeException>();
         }
 
@@ -256,7 +256,7 @@ namespace CustomCode.Core.DesignByContract.Tests
         public void UlongToBeOneOfFailedWithParameterizedException()
         {
             Given(() => 42ul)
-            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2u }, (v, others) => new ArgumentOutOfRangeException($"Invalid value: {v}")))
+            .When(value => Requires.ToBeOneOf(value, new[] { 1ul, 2ul }, (v, others) => new ArgumentOutOfRangeException($"Invalid value: {v}")))
             .ThenThrow<ArgumentOutOfRangeException>();
         }
 

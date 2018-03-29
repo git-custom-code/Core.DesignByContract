@@ -146,6 +146,7 @@
     <Compile Include="..\Shared\SharedAssemblyVersion.cs">
       <Link>Properties\SharedAssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="UshortBenchmarks.cs" />
     <Compile Include="UlongBenchmarks.cs" />
     <Compile Include="UintBenchmarks.cs" />
     <Compile Include="LongBenchmarks.cs" />
