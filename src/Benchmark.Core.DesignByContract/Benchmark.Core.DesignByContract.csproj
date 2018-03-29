@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="ByteBenchmarks.cs" />
     <Compile Include="ReferenceTypeBenchmarks.cs" />
+    <Compile Include="FloatBenchmarks.cs" />
     <Compile Include="UshortBenchmarks.cs" />
     <Compile Include="UlongBenchmarks.cs" />
     <Compile Include="UintBenchmarks.cs" />
