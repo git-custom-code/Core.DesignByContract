@@ -149,6 +149,7 @@
     <Compile Include="ByteBenchmarks.cs" />
     <Compile Include="DecimalBenchmarks.cs" />
     <Compile Include="DoubleBenchmarks.cs" />
+    <Compile Include="NullableFloatBenchmarks.cs" />
     <Compile Include="NullableLongBenchmarks.cs" />
     <Compile Include="NullableIntBenchmarks.cs" />
     <Compile Include="ReferenceTypeBenchmarks.cs" />
