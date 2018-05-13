@@ -7,7 +7,7 @@ namespace CustomCode.Core.DesignByContract
     using System.Runtime.CompilerServices;
 
     /// <summary>
-    /// Preconditions for <see cref="float?"/> types.
+    /// Preconditions for <see cref="Nullable{Float}"/> types.
     /// </summary>
     /// <remarks>
     /// https://stackoverflow.com/questions/15319025/methodimploptions-aggressiveinlining-vs-targetedpatchingoptout
@@ -21,7 +21,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to fullfill the specified
         /// boolean <paramref name="condition"/>.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="condition"> A boolean condition that must be fullfilled by the specified value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -43,7 +43,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to fullfill the specified
         /// boolean <paramref name="condition"/>.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="condition"> A boolean condition that must be fullfilled by the specified value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -65,7 +65,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to fullfill the specified
         /// boolean <paramref name="condition"/>.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="condition"> A boolean condition that must be fullfilled by the specified value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -87,7 +87,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be between the specified
         /// <paramref name="minimum"/> and <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
@@ -110,7 +110,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be between the specified
         /// <paramref name="minimum"/> and <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
@@ -133,7 +133,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be between the specified
         /// <paramref name="minimum"/> and <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
@@ -156,7 +156,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be greater than the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -178,7 +178,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be greater than the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -200,7 +200,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be greater than the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -222,7 +222,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be greater than or equal to the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -244,7 +244,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be greater than or equal to the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -266,7 +266,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be greater than or equal to the specified
         /// <paramref name="minimum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="minimum"> The allowed minimum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -288,7 +288,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be less than the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -310,7 +310,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be less than the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -332,7 +332,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be less than the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -354,7 +354,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be less than or equal to the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -376,7 +376,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be less than or equal to the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -398,7 +398,7 @@ namespace CustomCode.Core.DesignByContract
         /// Precondition that requires a nullable float <paramref name="value"/> to be less than or equal to the specified
         /// <paramref name="maximum"/> value.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="maximum"> The allowed maximum value. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -419,7 +419,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be negative.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
         /// <example>
@@ -438,7 +438,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be negative.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBeNegative(value, () => new ArgumentException("Invalid value", "value"));
@@ -458,7 +458,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be negative.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBeNegative(value, (v) => new ArgumentException("Invalid value", "value"));
@@ -478,7 +478,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be one of the expected values.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="expectedValues"> The expected values. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
@@ -499,7 +499,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be one of the expected values.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="expectedValues"> The expected values. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -520,7 +520,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be one of the expected values.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="expectedValues"> The expected values. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
@@ -541,7 +541,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be positive.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="parameterName"> The name of the parameter to be checked. </param>
         /// <param name="errorMessage"> The error message that is shown when the <paramref name="value"/> check is not successfull. </param>
         /// <example>
@@ -560,7 +560,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be positive.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBePositive(value, () => new ArgumentException("Invalid value", "value"));
@@ -580,7 +580,7 @@ namespace CustomCode.Core.DesignByContract
         /// <summary>
         /// Precondition that requires a nullable float <paramref name="value"/> to be positive.
         /// </summary>
-        /// <param name="value"> The <see cref="float?"/> value to be checked. </param>
+        /// <param name="value"> The <see cref="Nullable{Float}"/> value to be checked. </param>
         /// <param name="exceptionFactory"> A delegate that creates the exception to be thrown. </param>
         /// <example>
         /// Requires.ToBePositive(value, (v) => new ArgumentException("Invalid value", "value"));
