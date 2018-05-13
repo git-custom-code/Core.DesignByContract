@@ -1,19 +1,28 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>Core.DesignByContracts</AssemblyName>
     <RootNamespace>CustomCode.Core.DesignByContract</RootNamespace>
     <Configurations>Debug;Release;ContractsThrow;</Configurations>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Authors>CustomCode</Authors>
-    <PackageProjectUrl>https://github.com/git-custom-code/Core.DesignByContract</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/git-custom-code/Core.DesignByContract</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/git-custom-code/Core.DesignByContract/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>C#, Design by contract</PackageTags>
+    <IsPackable>True</IsPackable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
     <PackageId>CustomCode.Core.DesignByContract</PackageId>
+    <PackageVersion>1.0.0-alpha.1</PackageVersion>
+    <Title>Design by contract implementation for c#.</Title>
+    <Authors>CustomCode</Authors>
+    <Company>CustomCode</Company>
+    <Description>Design by contract implementation for c#.</Description>
+    <Copyright>Copyright @ 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/git-custom-code/Core.DesignByContract/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/git-custom-code/Core.DesignByContract</PackageProjectUrl>
+    <PackageTags>C#, Design by contract</PackageTags>
+    <RepositoryUrl>https://github.com/git-custom-code/Core.DesignByContract</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
@@ -27,6 +36,10 @@
     <Optimize>false</Optimize>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.6\Core.DesignByContracts.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\Shared\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
     <Compile Include="..\Shared\SharedAssemblyVersion.cs" Link="Properties\SharedAssemblyVersion.cs" />
@@ -35,5 +48,9 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
+
+  <Target Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" Name="PostBuild" AfterTargets="Pack">
+    <Exec Command="xcopy &quot;$(ProjectDir)bin\Release\*.nupkg&quot; &quot;$(SolutionDir)..\..\.nuget\packages\&quot; /Y /I" />
+  </Target>
 
 </Project>
